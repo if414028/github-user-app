@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.githubuserapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo"
@@ -10,9 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserApp">
         <activity
-            android:name=".DetailUserActivity"
+            android:name=".activity.DetailUserActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".SplashscreenActivity"
+        <activity
+            android:name=".activity.SplashscreenActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.main.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 

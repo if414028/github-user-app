@@ -5,15 +5,16 @@
 
         <variable
             name="model"
-            type="com.example.githubuserapp.User" />
+            type="com.example.githubuserapp.activity.User" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailUserActivity">
+        tools:context=".activity.DetailUserActivity">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/appbar"
@@ -29,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:text="@string/detail_user"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
         </androidx.cardview.widget.CardView>
 
@@ -39,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/user_avatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/appbar"
@@ -51,7 +54,7 @@
             android:layout_marginTop="16dp"
             android:text="@{model.username}"
             android:textAlignment="center"
-            android:textSize="16sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_user"
@@ -64,7 +67,7 @@
             android:layout_marginTop="8dp"
             android:text="@{model.company}"
             android:textAlignment="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_username"
@@ -88,31 +91,31 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@{model.repository + ` Repository`}"
+                android:text="@{model.publicRepos + ` Repository`}"
                 android:textAlignment="textEnd"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 tools:text="12 Repository" />
 
             <TextView
                 android:id="@+id/tv_follower"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
                 android:layout_weight="1"
-                android:text="@{model.follower + ` Follower`}"
+                android:text="@{model.followers + ` Follower`}"
                 android:textAlignment="center"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 tools:text="9 Follower" />
 
             <TextView
                 android:id="@+id/tv_following"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
                 android:layout_weight="1"
                 android:text="@{model.following + ` Following`}"
                 android:textAlignment="textStart"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 tools:text="21 Following" />
 
         </LinearLayout>

@@ -1,24 +1,25 @@
-package com.example.githubuserapp;
+package com.example.githubuserapp.activity;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.githubuserapp.R;
 import com.example.githubuserapp.databinding.ItemUserBinding;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
-    private List<User> userList;
+    private List<User> userList = new ArrayList<>();
     private UserListListener listener;
     private Context context;
 
@@ -28,7 +29,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         this.context = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public ItemUserBinding itemBinding;
 
         public ViewHolder(ItemUserBinding itemBinding) {
@@ -50,18 +51,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull @NotNull UserAdapter.ViewHolder holder, int position) {
         User user = userList.get(position);
         holder.itemBinding.setModel(user);
-        holder.itemBinding.ivUser.setImageDrawable(getAvatarAsDrawable(user));
+        Picasso.with(context).load(user.getAvatarUrl()).into(holder.itemBinding.ivUser);
         holder.itemBinding.getRoot().setOnClickListener(v -> listener.onItemClicked(user));
-    }
-
-    private Drawable getAvatarAsDrawable(User model) {
-        String name = model.getAvatar();
-        int id = context.getResources().getIdentifier(name, "drawable", context.getPackageName());
-        return context.getResources().getDrawable(id);
     }
 
     @Override
     public int getItemCount() {
         return userList.size();
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 }

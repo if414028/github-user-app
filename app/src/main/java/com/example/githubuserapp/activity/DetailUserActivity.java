@@ -1,13 +1,15 @@
-package com.example.githubuserapp;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
+package com.example.githubuserapp.activity;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
+import com.example.githubuserapp.R;
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding;
+import com.squareup.picasso.Picasso;
 
 public class DetailUserActivity extends AppCompatActivity {
 
@@ -37,12 +39,6 @@ public class DetailUserActivity extends AppCompatActivity {
 
     private void initLayout() {
         binding.setModel(model);
-        binding.ivUser.setImageDrawable(getAvatarAsDrawable());
-    }
-
-    private Drawable getAvatarAsDrawable() {
-        String name = model.getAvatar();
-        int id = getResources().getIdentifier(name, "drawable", getPackageName());
-        return getResources().getDrawable(id);
+        Picasso.with(getApplicationContext()).load(model.getAvatarUrl()).into(binding.ivUser);
     }
 }

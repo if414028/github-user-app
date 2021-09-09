@@ -1,4 +1,4 @@
-package com.example.githubuserapp;
+package com.example.githubuserapp.activity;
 
 public interface UserListListener {
     void onItemClicked(User user);

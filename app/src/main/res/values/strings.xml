@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Github User App</string>
     <string name="title">Github User</string>
-    <string name="detail_user">Detail User</string>
+    <string name="detail_user">Detail User</string>,
+    <string name="user_avatar">User avatar image</string>
+    <string name="app_logo">App logo</string>
+
+    <string name="user_not_found">User tidak ditemukan</string>
+    <string name="user_not_found_desc">Silahkan coba kata kunci lain</string>
+
+    <string name="error_get_user_list">Gagal mendapatkan user</string>
+    <string name="error_get_user_list_desc">Coba cek jaringan anda</string>
 </resources>
